@@ -1,0 +1,101 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 30/10/2018 05:34
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-follow:before { content: "\f100"; }
+.flaticon-menu:before { content: "\f101"; }
+.flaticon-alphabetical-order:before { content: "\f102"; }
+.flaticon-microphone:before { content: "\f103"; }
+.flaticon-plus:before { content: "\f104"; }
+.flaticon-calendar:before { content: "\f105"; }
+.flaticon-favorite:before { content: "\f106"; }
+.flaticon-folder:before { content: "\f107"; }
+.flaticon-users:before { content: "\f108"; }
+.flaticon-chat:before { content: "\f109"; }
+.flaticon-lightning:before { content: "\f10a"; }
+.flaticon-notification:before { content: "\f10b"; }
+.flaticon-speech-bubble:before { content: "\f10c"; }
+.flaticon-alarm-clock:before { content: "\f10d"; }
+.flaticon-edit:before { content: "\f10e"; }
+.flaticon-attach-button:before { content: "\f10f"; }
+.flaticon-dropbox-logo:before { content: "\f110"; }
+.flaticon-share:before { content: "\f111"; }
+.flaticon-dustbin:before { content: "\f112"; }
+.flaticon-down-arrow:before { content: "\f113"; }
+.flaticon-right-arrow-circular-button:before { content: "\f114"; }
+.flaticon-button:before { content: "\f115"; }
+.flaticon-check-square:before { content: "\f116"; }
+.flaticon-duplicate-content:before { content: "\f117"; }
+.flaticon-email:before { content: "\f118"; }
+.flaticon-printer:before { content: "\f119"; }
+.flaticon-do-not-disturb:before { content: "\f11a"; }
+.flaticon-file:before { content: "\f11b"; }
+.flaticon-list-menu:before { content: "\f11c"; }
+.flaticon-search:before { content: "\f11d"; }
+.flaticon-cross-out:before { content: "\f11e"; }
+    
+    $font-Flaticon-follow: "\f100";
+    $font-Flaticon-menu: "\f101";
+    $font-Flaticon-alphabetical-order: "\f102";
+    $font-Flaticon-microphone: "\f103";
+    $font-Flaticon-plus: "\f104";
+    $font-Flaticon-calendar: "\f105";
+    $font-Flaticon-favorite: "\f106";
+    $font-Flaticon-folder: "\f107";
+    $font-Flaticon-users: "\f108";
+    $font-Flaticon-chat: "\f109";
+    $font-Flaticon-lightning: "\f10a";
+    $font-Flaticon-notification: "\f10b";
+    $font-Flaticon-speech-bubble: "\f10c";
+    $font-Flaticon-alarm-clock: "\f10d";
+    $font-Flaticon-edit: "\f10e";
+    $font-Flaticon-attach-button: "\f10f";
+    $font-Flaticon-dropbox-logo: "\f110";
+    $font-Flaticon-share: "\f111";
+    $font-Flaticon-dustbin: "\f112";
+    $font-Flaticon-down-arrow: "\f113";
+    $font-Flaticon-right-arrow-circular-button: "\f114";
+    $font-Flaticon-button: "\f115";
+    $font-Flaticon-check-square: "\f116";
+    $font-Flaticon-duplicate-content: "\f117";
+    $font-Flaticon-email: "\f118";
+    $font-Flaticon-printer: "\f119";
+    $font-Flaticon-do-not-disturb: "\f11a";
+    $font-Flaticon-file: "\f11b";
+    $font-Flaticon-list-menu: "\f11c";
+    $font-Flaticon-search: "\f11d";
+    $font-Flaticon-cross-out: "\f11e";
