@@ -258,7 +258,7 @@ a{
 .title-task{
     font-size: 15px;
     display: inline-block;
-    padding: 13px 50px;
+    padding: 12px 50px 13px 50px;
 }
 .info-detail{
     display: inline-block;
@@ -329,7 +329,7 @@ a{
     visibility: visible;
 }
 .right-pana{
-    /* display: none; */
+    display: none;
     position: relative;
     float: right;
     width: 367px;
@@ -427,9 +427,10 @@ a{
 .comment-wrapper input[type="text"]{
     background: transparent;
     width: 350px;
-    height: 28px;
+    height: 34px;
     border: 1px solid #dad6d6 ;
     display: block;
+    padding: 7px;
 }
 .right-pana input[type="text"]::placeholder,input[type="file"]::placeholder,textarea::placeholder{
     color:#858383;
@@ -836,6 +837,9 @@ input[type=checkbox] {
     .main-content{
         margin-left: 40px;
     }
+    .left-wrapper{
+        width: 40px;
+    }
 }
 /* Class for click change  */
 .mehi{
@@ -849,4 +853,16 @@ input[type=checkbox] {
   }
   .show{
       display: block;
+  }
+  .resize-less{
+      width: 280px;
+  }
+  .resize-less-wrapper{
+    width: 275px;
+}
+  .main-content-less-thousand{
+      margin-left: 280px;
+  }
+  .resize-user{
+      width: 180px;
   }

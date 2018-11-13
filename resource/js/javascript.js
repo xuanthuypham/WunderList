@@ -5,32 +5,87 @@ function hiddenRightmenu() {
     document.getElementsByClassName("main-content")[0].style.marginRight = "0";
 
 }
-document.getElementsByClassName("complete")[0].addEventListener("click", function () {
-    hiddenRightmenu();
-});
-document.getElementsByClassName("addtask")[0].addEventListener("click", function () {
-    hiddenRightmenu();
-});
-document.getElementsByClassName("rem")[0].addEventListener("click", function () {
-    hiddenRightmenu();
+//Hidden right-menu
+var bodyElement = document.body;
+function hdmenu(event) {
+    var header = document.getElementsByClassName("header")[1];
+    var tas = document.getElementsByClassName("tasklist");
+    var rightpara = document.getElementsByClassName("right-pana")[0];
+    var complete = document.getElementById("showcompleteid");
+    var usertool = document.getElementsByClassName("user-toolbar")[0];
+    var leftwrapper = document.getElementsByClassName("left-wrapper")[0];
+    var createlist = document.getElementById("createlistid");
+    var buttonlist = document.getElementsByClassName("button-list")[0];
+    var currentE = event.target;
+    if ((header.contains(currentE) == false) && (tas[0].contains(currentE) == false) && (tas[1].contains(currentE) == false) && (usertool.contains(currentE) == false) && (rightpara.contains(currentE) == false) && (complete.contains(currentE) == false) && (leftwrapper.contains(currentE) == false) && (createlist.contains(currentE) == false) && (buttonlist.contains(currentE) == false)) {
+        hiddenRightmenu();
+    }
+};
+bodyElement.addEventListener("click", function (event) {
+    hdmenu(event);
 });
 document.getElementsByClassName("button-list")[0].addEventListener("click", function () {
-    var rem = document.getElementsByClassName("rem");
-    for (i = 0; i < rem.length; i++) {
-        rem[i].classList.toggle("mehi");
-    }
+    var rem = document.getElementsByClassName("loverem");
     var resize = document.getElementsByClassName("resize");
-    for (i = 0; i < resize.length; i++) {
-        resize[i].classList.toggle("resizehi");
+    var remhi = document.getElementsByClassName("antirem");
+    var maincon = document.getElementsByClassName("main-content")[0];
+    var user = document.getElementsByClassName("user")[0];
+    var leftwrapper = document.getElementsByClassName("left-wrapper")[0];
+    if (window.innerWidth >= 1000) {
+        for (i = 0; i < rem.length; i++) {
+            rem[i].classList.toggle("mehi");
+        }
+        for (i = 0; i < resize.length; i++) {
+            resize[i].classList.toggle("resizehi");
+        }
+        maincon.classList.toggle("main-contenthi");
+        user.classList.toggle("resizehi");
+        user.classList.toggle("resize-user");
+    } else {
+        for (i = 0; i < remhi.length; i++) {
+            remhi[i].classList.toggle("rem");
+        }
+        for (i = 0; i < resize.length; i++) {
+            resize[i].classList.toggle("resize-less");
+        }
+        maincon.classList.toggle("main-content-less-thousand");
+        leftwrapper.classList.toggle("resize-less-wrapper");
+        user.classList.toggle("resize-user");
     }
-    document.getElementsByClassName("main-content")[0].classList.toggle("main-contenthi");
 });
+window.addEventListener("resize", function () {
+    var maincon = document.getElementsByClassName("main-content")[0];
+    var resize = document.getElementsByClassName("resize");
+    var rem = document.getElementsByClassName("loverem");
+    var user = document.getElementsByClassName("user")[0];
+    var leftwrapper = document.getElementsByClassName("left-wrapper")[0];
+    var remhi = document.getElementsByClassName("antirem");
+    if (window.innerWidth < 1000) {
+        for (i = 0; i < resize.length; i++) {
+            resize[i].classList.remove("resizehi");
+        }
+        for (i = 0; i < rem.length; i++) {
+            rem[i].classList.remove("mehi");
+        }
+        maincon.classList.remove("main-contenthi");
+        user.classList.remove("resizehi");
+    } else {
+        leftwrapper.classList.remove("resize-less-wrapper");
+        maincon.classList.remove("main-content-less-thousand");
+        for (i = 0; i < resize.length; i++) {
+            resize[i].classList.remove("resize-less");
+        }
+        for (i = 0; i < remhi.length; i++) {
+            remhi[i].classList.add("rem");
+        }
+    }
+})
 function menuChange(event) {
     var menulinks = document.getElementsByClassName("menuLinks");
     for (i = 0; i < menulinks.length; i++) {
-        menulinks[i].className = menulinks[i].className.replace(" list-scroll-active", "");
+        menulinks[i].classList.remove("list-scroll-active");
     }
-    event.currentTarget.className += " list-scroll-active";
+    event.currentTarget.classList.add("list-scroll-active");
     document.getElementsByTagName("h1")[0].innerHTML = event.currentTarget.getElementsByTagName("span")[0].innerHTML;
 }
 function createANewTask(value) {
@@ -180,7 +235,6 @@ document.getElementById("inputtodoid").addEventListener("keyup", function (event
 //     };
 // }
 
-
 function openRightMenu(event) {
     document.getElementsByClassName("right-pana")[0].style.display = "block";
     document.getElementsByClassName("main-content")[0].style.marginRight = "367px";
@@ -284,8 +338,14 @@ document.getElementById("createlistid").addEventListener("click", function () {
 function closeCreateList() {
     createlist.classList.add("mehi");
 }
-
+function editList(event) {
+    var value = event.currentTarget.parentElement.getElementsByTagName("span")[0].innerHTML;
+    createlist.classList.remove("mehi");
+    document.getElementById("input-create-list").value = value;
+}
 //Context menu
+var val = undefined;
+var cuElement = undefined;
 var deletelistmodal = document.getElementById("modal-delete-task");
 function opentContextTask(event) {
     event.preventDefault();
@@ -300,22 +360,32 @@ function opentContextTask(event) {
         taskmenu.removeAttribute("style");
         taskmenu.style.top = event.pageY + "px";
     }
-    var val = event.currentTarget.getElementsByTagName("span")[0].innerHTML;
+     cuElement = event.currentTarget;
+     val = cuElement.getElementsByTagName("span")[0].innerHTML;
     //Open Delete List modal
     taskmenu.style.left = event.pageX + "px";
-    document.getElementById("deletetodoid").addEventListener("click", function () {
-        deletelistmodal.classList.remove("mehi");
-        document.getElementById("detail-delete-id").innerHTML = val;
+    document.body.addEventListener("click", function () {
+        taskmenu.classList.add("mehi");
     });
+    console.log(cuElement);
 }
 //Close delete list modal
 function closeDeleteModal() {
     deletelistmodal.classList.add("mehi");
 }
+document.getElementById("deletetodoid").addEventListener("click", function() {
+    deletelistmodal.classList.remove("mehi");
+    document.getElementById("detail-delete-id").innerHTML = val;
+    //Save deletet
+    document.getElementById("savedeletetaskid").addEventListener("click", function () {
+        cuElement.parentElement.parentElement.removeChild(cuElement.parentElement);
+        closeDeleteModal();
+    })
+});
 
 //Add a comment
-document.getElementById("addcommentid").addEventListener("keyup",function (event) {
-    if(event.keyCode == 13){
+document.getElementById("addcommentid").addEventListener("keyup", function (event) {
+    if (event.keyCode == 13) {
         createComment(this.value);
     }
 })
@@ -323,19 +393,20 @@ document.getElementById("addcommentid").addEventListener("keyup",function (event
 function createComment(valu) {
     var liE = document.createElement("li");
     var commentwrapper = document.createElement("div");
-    commentwrapper.setAttribute("class","commentlistwrap");
+    commentwrapper.setAttribute("class", "commentlistwrap");
     var logocomwrapper = document.createElement("div");
-    logocomwrapper.setAttribute("class","logocomwrap");
+    logocomwrapper.setAttribute("class", "logocomwrap");
     var logo = document.createElement("img");
-    logo.setAttribute("src","resource/image/A.png");
-    logo.setAttribute("style","width: 32px;height: 32px;");   
+    logo.setAttribute("src", "resource/image/A.png");
+    logo.setAttribute("style", "width: 32px;height: 32px;");
     logocomwrapper.appendChild(logo);
     var sectionCom = document.createElement("div");
-    sectionCom.setAttribute("class","commentwrap");
+    sectionCom.setAttribute("class", "commentwrap");
     var name = document.createElement("span");
-    name.set
+    name.style.fontWeight = "bold";
     name.appendChild(document.createTextNode("Pham Xuan Thuy"));
     var time = document.createElement("span");
+    time.style.color = "#737272";
     time.appendChild(document.createTextNode("a second before"));
     var comment = document.createElement("div");
     comment.appendChild(document.createTextNode(valu));
@@ -348,3 +419,30 @@ function createComment(valu) {
     liE.appendChild(commentwrapper);
     document.getElementById("commentlistid").getElementsByTagName("ul")[0].appendChild(liE);
 }
+function createList(value) {
+    var listul = document.getElementById("liststoredid");
+    var listli = document.createElement("li");
+    listli.setAttribute("class", "menuLinks");
+    listli.setAttribute("onclick", "menuChange(event)");
+    var aE = document.createElement("a");
+    aE.setAttribute("href", "#");
+    var icon = document.createElement("i");
+    icon.setAttribute("style", "color: #c9c9c9");
+    icon.setAttribute("class", "flaticon-list-menu");
+    var spanE = document.createElement("span");
+    spanE.setAttribute("class", "loverem rem antirem");
+    spanE.appendChild(document.createTextNode(value));
+    var editE = document.createElement("span");
+    editE.setAttribute("class", "loverem rem antirem flaticon-edit");
+    editE.setAttribute("style", "float:right;padding: 2px 5px 0px 0px;");
+    editE.setAttribute("onclick", "editList(event)");
+    aE.appendChild(icon);
+    aE.appendChild(spanE);
+    aE.appendChild(editE);
+    listli.appendChild(aE);
+    listul.appendChild(listli);
+}
+document.getElementById("list-save").addEventListener("click", function () {
+    createList(document.getElementById("input-create-list").value);
+    closeCreateList();
+})

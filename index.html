@@ -18,8 +18,8 @@
                 <div class="button-list">
                     <a href="#"><i class="flaticon-list-menu"></i></a>
                 </div>
-                <input type="text" class="rem">
-                <div class="rem button-search">
+                <input id="searchid" type="text" class="loverem rem antirem">
+                <div class="loverem rem button-search antirem">
                     <a href="#"><i class="flaticon-search"></i></a>
                 </div>
                 <div class="button-cancel">
@@ -27,11 +27,11 @@
                 </div>
             </div>
             <div class="user-toolbar">
-                <div class="user resize">
+                <div class="user">
                     <div class="user-image">
                         <img height="32px;" width="32px" src="resource/image/A.png" alt="">
                     </div>
-                    <a href="#" class="rem" style="color: black">
+                    <a href="#" class="loverem rem antirem" style="color: black">
                         <span style="padding-top: 7px;float: right;"><i class="flaticon-down-arrow"></i></span>
                         <span style="display: inline-block;padding:7px 5px;">Phạm Xuân Th..</span>
                     </a>
@@ -49,7 +49,7 @@
                         <li><a href="#">Sign Out</a></li>
                     </ul>
                 </div>
-                <div class="user-count rem">
+                <div class="loverem user-count rem antirem">
                     <a href="#" class="tooltip"><i style="padding-right: 10px;" class="flaticon-notification"></i></a>
                     <div class="tooltiptext">Activities</div>
                     <a href="#" class="tooltip"><i class="flaticon-speech-bubble"></i></a>
@@ -58,20 +58,20 @@
             </div>
             <div class="left-wrapper">
                 <div class="resize list-scroll">
-                    <ul>
+                    <ul id="liststoredid">
                         <li class="menuLinks" onclick="menuChange(event)">
-                            <a href="#"><i style="color:#2b8dec;" class="flaticon-chat"></i><span class="rem">Inbox</span></a>
+                            <a href="#"><i style="color:#2b8dec;" class="flaticon-chat"></i><span class="loverem rem antirem">Inbox</span></a>
                         </li>
                         <li class="menuLinks" onclick="menuChange(event)"><a href="#"><i style="color: #c9c9c9;" class="flaticon-list-menu"></i><span
-                                    class="rem">Inbox Copy</span><span class="rem" style="float:right;padding: 2px 5px 0px 0px;">5</span></a>
+                                    class="loverem rem antirem">Inbox Copy</span><span class="loverem rem antirem" style="float:right;padding: 2px 5px 0px 0px;">5</span></a>
                         </li>
                         <li class="menuLinks" onclick="menuChange(event)">
-                            <a href="#"><i class="flaticon-users"></i><span class="rem">For Work</span> <span class="rem"
+                            <a href="#"><i class="flaticon-users"></i><span class="loverem rem antirem">For Work</span> <span class="loverem rem antirem"
                                     style="float:right;padding:2px 5px 0px 0px;">4</span></a>
                         </li>
                         <li class="menuLinks" onclick="menuChange(event)">
-                            <a href="#"><i style="color:#2b8dec;" class="flaticon-folder"></i><span class="rem">New
-                                    Folder</span><span class="rem" style="float:right; padding:2px 5px 0 0;" class="flaticon-down-arrow"></span></a>
+                            <a href="#"><i style="color:#2b8dec;" class="flaticon-folder"></i><span class="loverem rem antirem">New
+                                    Folder</span><span class="loverem rem antirem" style="float:right; padding:2px 5px 0 0;" class="flaticon-down-arrow"></span></a>
                             <!-- <ul>
                             <li><a href="#"><i class="flaticon-list-menu"></i>Forwork 1</a></li>
                         </ul> -->
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div id="createlistid" class="create-list resize">
-                <a href="#"><i class="flaticon-plus" style="float:left"></i><span class="rem">Create list</span></a>
+                <a href="#"><i class="flaticon-plus" style="float:left"></i><span class="loverem rem antirem">Create list</span></a>
             </div>
         </div>
         <div class="right-pana">
@@ -116,18 +116,6 @@
                     </ul>
                     <div id="commentlistid" class="commentlist">
                         <ul>
-                            <li>
-                                <div class="commentlistwrap">
-                                    <div class="logocomwrap">
-                                        <img style="width: 32px;height: 32px;" src="resource/image/A.png" alt="">
-                                    </div>
-                                    <div class="commentwrap">
-                                        <span style="font-weight: bold">Pham Xuan Thuy</span>
-                                        <span style="color: #737272">a month ago</span>
-                                        <div>hihihihihih</div>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -137,7 +125,7 @@
                     <input id="addcommentid" type="text" placeholder="Add a comment...">
                 </div>
                 <div style="opacity: 0.8;">
-                    <i style="float: left;" class="flaticon-right-arrow-circular-button"></i>
+                    <a href="#" onclick="hiddenRightmenu()"><i style="float: left;" class="flaticon-right-arrow-circular-button"></i></a>
                     <i style="float:right;" class="flaticon-dustbin"></i>
                     <div style="text-align: center;font-size: 13px;padding: 5px 0;">
                         Checked an hours
@@ -214,7 +202,7 @@
                         </ul>
                     </div>
                     <div class="complete">
-                        <a href="#" onclick="showCompleteTask()" style="font-size: 10px;font-family: Arial; display: inline-block;height:10px;padding: 5px 10px 5px ;background: rgba(102, 137, 100,0.7);color:white;border-radius: 3px;;height: 20px;;">
+                        <a id="showcompleteid" href="#" onclick="showCompleteTask()" style="font-size: 10px;font-family: Arial; display: inline-block;height:10px;padding: 5px 10px 5px ;background: rgba(102, 137, 100,0.7);color:white;border-radius: 3px;;height: 20px;;">
                             SHOW COMPLETED TO-DOS
                         </a>
                     </div>
@@ -233,7 +221,7 @@
                 <form>
                     <div class="modal-body">
                         <div>
-                            <input class="modal-inputwrap" type="text" placeholder="List Name">
+                            <input id="input-create-list" class="modal-inputwrap" type="text" placeholder="List Name">
                         </div>
                         <ul class="task-menu">
                             <li><a href="#">LIST MEMBERS</a></li>
@@ -254,7 +242,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button">Save</button>
+                        <button id="list-save" type="button">Save</button>
                         <button type="button" onclick="closeCreateList()">Cancel</button>
                     </div>
                 </form>
@@ -452,7 +440,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button">Save</button>
+                            <button type="button" id="savedeletetaskid">Save</button>
                             <button type="button" onclick="closeDeleteModal()">Cancel</button>
                         </div>
                 </div>
